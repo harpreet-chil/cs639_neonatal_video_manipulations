@@ -10,11 +10,11 @@ I have used the ‘Logitech C920’ USB camera installed on neonate bed in NICU 
 We used combination of Inception-v3 convolutional neural network (CNN) followed by transfer learning layers of Long Short-Term Memory (LSTM) for automated tagging of data. The pooled output of the Time-distributed CNN model generates an output of the 2048-dimensional feature vector. While training the model, we had set the weights of InceptionV3’s layers as non-trainable and trained only the LSTM layers added for transfer learning. The 720 x 480 pixels input images were resized to 224x224 pixels as input to InceptionV3 keras implementation and default image augmentation technique with zoom range of 0.1, rotation range of 0.8, and width & height range shift of 0.2 was utilized. This technique was very slow for real time learning, as for all epoch, InceptionV3’s layers will run for all images to generate feature map and as it contains 21802784 parameters. The model training process was computationally too exhaustive and in-efficient. Moreover, user could not visualize the features used in this process such as the neonate, the clinical staff, diapers, syringe, plunger, and their spatial attributes and how they correlate during the manipulations. 
 
 In this project instead of color image of 720 x 480 pixels, we aim to reduce the computational overload to set of derived features and build a custom matrix of features for manipulations which will be used to generate spatial signature of the respective manipulation. Possible options to reduce this analysis pipeline are
-•	Fast R-CNN (Region based convolution network) and RPN (region proposed network) to perform object identification. Once objects are identified, then explore motion of these objects in sequence of frames. 
-•	Based on movement of objects in video will be different in feeding, patting, and diaper-change, we can build different manipulations as activity amongst different objects. 
-•	Analyzing each color channel of image (Red, Green, Blue) for its properties and identifying if one or more is sufficient for manipulation identification.
-•	Use specific image analysis techniques (convolutions) to identify manipulation specific features which are performed in patting, diaper change, and feeding.
-•	Explore possibility of using greyscale images instead of RGB images to reduce computation time
+- Fast R-CNN (Region based convolution network) and RPN (region proposed network) to perform object identification. Once objects are identified, then explore motion of these objects in sequence of frames. 
+- Based on movement of objects in video will be different in feeding, patting, and diaper-change, we can build different manipulations as activity amongst different objects. 
+- Analyzing each color channel of image (Red, Green, Blue) for its properties and identifying if one or more is sufficient for manipulation identification.
+- Use specific image analysis techniques (convolutions) to identify manipulation specific features which are performed in patting, diaper change, and feeding.
+- Explore possibility of using greyscale images instead of RGB images to reduce computation time
 
 
 This will allow us to generalize analysis pipeline for different manipulations which can subsequently be used in combination of neural network or otherwise to detect a manipulation on the real time basis
