@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Neonatal manipulations analysis pipeline to enable bed-side learning
 
 You can use the [editor on GitHub](https://github.com/harpreet-chil/cs639_neonatal_video_manipulations/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
 
